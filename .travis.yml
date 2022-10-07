@@ -5,6 +5,13 @@ python:
   - "3.8"
   - "3.9"
 
+deploy:
+  provider: pypi
+  username: __token__
+  password: "pypi-AgEIcHlwaS5vcmcCJGY3MTQ4ZjRkLTcyNWUtNDQxMS1iZmNiLWY0ZTQzMTc5M2M2ZQACKlszLCJlMjlhYmZmNC1jOTY1LTRiN2YtOTRjYi0zOGQ3ZDQ2M2Y2MTUiXQAABiAhlPCRUGG5WNyUWCx6zd4uLijWiiRpbfIJhg7lhqpA8A"
+  edge: true
+  twine_check: true
+
 install:
   - pip install pytest-cov
   - python setup.py install
@@ -25,9 +32,3 @@ after_success:
   - pip install codecov
   - codecov
 
-deploy:
-  provider: pypi
-  username: __token__
-  password: "pypi-AgEIcHlwaS5vcmcCJGY3MTQ4ZjRkLTcyNWUtNDQxMS1iZmNiLWY0ZTQzMTc5M2M2ZQACKlszLCJlMjlhYmZmNC1jOTY1LTRiN2YtOTRjYi0zOGQ3ZDQ2M2Y2MTUiXQAABiAhlPCRUGG5WNyUWCx6zd4uLijWiiRpbfIJhg7lhqpA8A"
-  edge: true
-  twine_check: true
