@@ -4,18 +4,20 @@ python:
   #- "3.7"
   - "3.8"
   - "3.9"
+steps:
+      - name: PyPI Deployment
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: casperdcl/deploy-pypi@v2
+        with:
+          password: ${{ secrets.PYPI_TOKEN }}
+          pip: wheel -w dist/ --no-deps .
 
-deploy:
-  provider: pypi
-  username: __token__
-  password:
-  edge: true
-  twine_check: true
-
+'''
 install:
   - pip install pytest-cov
   - python setup.py install
-'''
+
 script:
   - pytest --cov=./
 
